@@ -1,4 +1,6 @@
-Por supuesto, aquí tienes el markdown completo para agregar al README de tu repositorio:
+Practica Integradora Modulo 4
+
+Referencia: https://github.com/soyHenry/DS-M4-Herramientas_Big_Data
 
 ```markdown
 # Práctica Integradora: Ambiente de Big Data con Docker
@@ -7,75 +9,63 @@ Durante esta práctica, hemos preparado un entorno de trabajo basado en Docker q
 
 ## Instrucciones de Uso
 
-1. Clona este repositorio:
+1. Lo primero es Clonar este repositorio:
 
-   ```bash
-   git clone https://github.com/lopezdar222/herramientas_big_data
-   cd herramientas_big_data
    ```
-
-2. Ejecuta el siguiente comando para levantar el entorno Docker:
-
-   ```bash
-   sudo docker-compose -f docker-compose-vX.yml up -d
+       git clone https://github.com/soyHenry/DS-M4-Herramientas_Big_Data.git
    ```
+2. Dirigirse a:
 
-3. Accede a las interfaces de las herramientas utilizando las siguientes URL:
+```
+    cd DS-M4-Herramientas_Big_Data
+```
 
-   - **Namenode:** http://<IP_Anfitrion>:9870/dfshealth.html#tab-overview
-   - **Datanode:** http://<IP_Anfitrion>:9864/
-   - **Spark master:** http://<IP_Anfitrion>:8080/
-   - **Spark worker:** http://<IP_Anfitrion>:8081/
-   - **HBase Master-Status:** http://<IP_Anfitrion>:16010
-   - **HBase Zookeeper_Dump:** http://<IP_Anfitrion>:16010/zk.jsp
-   - **HBase Region_Server:** http://<IP_Anfitrion>:16030
-   - **Zeppelin:** http://<IP_Anfitrion>:8888
-   - **Neo4j:** http://<IP_Anfitrion>:7474
+3. Luego ejecutar el siguiente comando para levantar el entorno Docker, y comenzar con el 1er ejercicio HDFS.
+   NOTA: si bien el original anteponia la palabra 'sudo' en nuestra terminal de Mac no lo usamos, por lo tanto el codigo referido quedo asi: 
+
+   ```
+      docker-compose -f docker-compose-v1.yml up -d
+   ```
 
 ## Carga de Archivos CSV en HDFS
 
-Para cargar archivos CSV en HDFS, sigue estos pasos:
+Para cargar archivos CSV en HDFS, hay que seguir estos pasos:
 
-1. Utiliza el archivo de configuración `docker-compose-v1.yml` para el entorno.
+1. Copiar los archivos ubicados en la carpeta `Datasets` al contenedor "namenode":
 
-2. Copia los archivos ubicados en la carpeta `Datasets` al contenedor "namenode":
+   ``` 
+      docker exec -it namenode bash
+      cd home
+      mkdir Datasets
+      exit
+      docker cp Datasets namenode:/home/Datasets
 
-   ```bash
-   sudo docker exec -it namenode bash
-   cd home
-   mkdir Datasets
-   exit
-   sudo docker cp <path>/<archivo> namenode:/home/Datasets/<archivo>
    ```
 
-3. Ubícate en el contenedor "namenode":
+3. Volver a ubicarse nuevamente en el contenedor "namenode":
 
-   ```bash
-   sudo docker exec -it namenode bash
+   ```docker exec -it namenode bash
    ```
 
-4. Crea un directorio en HDFS llamado "/data":
+4. Crear un directorio en HDFS llamado "/data":
 
-   ```bash
-   hdfs dfs -mkdir -p /data
+   ```hdfs dfs -mkdir -p /data
    ```
 
 5. Copia los archivos CSV a HDFS:
 
-   ```bash
-   hdfs dfs -put /home/Datasets/* /data
+   ```hdfs dfs -put /home/Datasets/* /data
    ```
 
-Este proceso de creación de la carpeta "data" y copiado de los archivos puede ser automatizado mediante un script de shell.
+Este proceso de creación de la carpeta "data" y copiado de los archivos puede ser automatizado mediante un script de shell, el cual figura el el repositorio original con el nombre de Paso01.sh
 
 ## Configuración de Hadoop
 
-En nuestro sistema Hadoop, utilizamos ciertas configuraciones predeterminadas para el tamaño de bloque y el factor de replicación en el sistema de archivos distribuido (HDFS). Aquí están los valores clave que pueden ser relevantes para entender el funcionamiento del sistema:
+Con respecto a la Nota: Busque dfs.blocksize y dfs.replication en http://<IP_Anfitrion>:9870/conf para encontrar los valores de tamaño de bloque y factor de réplica respectivamente entre otras configuraciones del sistema Hadoop.
+
+Hemos aprendido que en nuestro sistema Hadoop, utilizamos ciertas configuraciones predeterminadas para el tamaño de bloque y el factor de replicación en el sistema de archivos distribuido (HDFS). Aquí están los valores clave que pueden ser relevantes para entender el funcionamiento del sistema:
 
 - **Tamaño de bloque (dfs.blocksize):** El tamaño de bloque predeterminado es de 128 MB.
 - **Factor de replicación (dfs.replication):** Utilizamos un factor de replicación de 3, lo que significa que cada bloque se replica tres veces en el clúster para proporcionar redundancia y tolerancia a fallos.
 
-Puedes encontrar más detalles sobre estas configuraciones en el archivo de configuración `hdfs-default.xml` del clúster Hadoop.
 ```
-
-Este markdown proporciona una guía completa para utilizar el entorno Docker, cargar archivos en HDFS y entender las configuraciones predeterminadas de Hadoop. Asegúrate de reemplazar `<IP_Anfitrion>` con la dirección IP real de tu host en todas las URL proporcionadas.
