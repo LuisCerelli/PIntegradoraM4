@@ -71,4 +71,3 @@ Hemos aprendido que en nuestro sistema Hadoop, utilizamos ciertas configuracione
 - **Tamaño de bloque (dfs.blocksize):** El tamaño de bloque predeterminado es de 128 MB.
 - **Factor de replicación (dfs.replication):** Utilizamos un factor de replicación de 3, lo que significa que cada bloque se replica tres veces en el clúster para proporcionar redundancia y tolerancia a fallos.
 
-```
