@@ -2,7 +2,7 @@ Practica Integradora Modulo 4
 
 Referencia: https://github.com/soyHenry/DS-M4-Herramientas_Big_Data
 
-```markdown
+
 # Práctica Integradora: Ambiente de Big Data con Docker
 
 Durante esta práctica, hemos preparado un entorno de trabajo basado en Docker que incluye Hadoop (HDFS) y varias herramientas de Big Data, como Spark, Hive, HBase, MongoDB, Neo4j, Zeppelin y Kafka.
