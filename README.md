@@ -1,9 +1,9 @@
-Practica Integradora Modulo 4
+# Práctica Integradora Modulo 4
 
 Referencia: https://github.com/soyHenry/DS-M4-Herramientas_Big_Data
 
 
-# Práctica Integradora: Ambiente de Big Data con Docker
+## Práctica Integradora: Ambiente de Big Data con Docker
 
 Durante esta práctica, hemos preparado un entorno de trabajo basado en Docker que incluye Hadoop (HDFS) y varias herramientas de Big Data, como Spark, Hive, HBase, MongoDB, Neo4j, Zeppelin y Kafka.
 
@@ -24,10 +24,16 @@ Durante esta práctica, hemos preparado un entorno de trabajo basado en Docker q
    NOTA: si bien el original anteponia la palabra 'sudo' en nuestra terminal de Mac no lo usamos, por lo tanto el codigo referido quedo asi: 
 
    ```
-      docker-compose -f docker-compose-v1.yml up -d
+      docker-compose -f docker-compose-vX.yml up -d # donde la letra 'X' sera reemplazada por el valor de referencia marcada al principio de cada ejercicio.-
    ```
 
-## Carga de Archivos CSV en HDFS
+## Ejercicio 1) HDFS
+
+Se puede utilizar el entorno docker-compose-v1.yml, por lo tanto, el codigo es: 
+
+```
+   docker-compose -f docker-compose-v1.yml up-d
+```
 
 Para cargar archivos CSV en HDFS, hay que seguir estos pasos:
 
