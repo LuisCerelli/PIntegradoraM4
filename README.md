@@ -44,17 +44,20 @@ Para cargar archivos CSV en HDFS, hay que seguir estos pasos:
 
 3. Volver a ubicarse nuevamente en el contenedor "namenode":
 
-   ```docker exec -it namenode bash
+   ```
+      docker exec -it namenode bash
    ```
 
 4. Crear un directorio en HDFS llamado "/data":
 
-   ```hdfs dfs -mkdir -p /data
+   ```
+      hdfs dfs -mkdir -p /data
    ```
 
 5. Copia los archivos CSV a HDFS:
 
-   ```hdfs dfs -put /home/Datasets/* /data
+   ```
+      hdfs dfs -put /home/Datasets/* /data
    ```
 
 Este proceso de creación de la carpeta "data" y copiado de los archivos puede ser automatizado mediante un script de shell, el cual figura el el repositorio original con el nombre de Paso01.sh
