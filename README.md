@@ -23,7 +23,11 @@ Durante esta práctica, hemos preparado un entorno de trabajo basado en Docker q
 3. Luego ejecutar el siguiente comando para levantar el entorno Docker, y comenzar con el 1er ejercicio HDFS.
    NOTA: si bien el original anteponia la palabra 'sudo' en nuestra terminal de Mac no lo usamos, por lo tanto el codigo referido quedo asi: 
 
-          <p align="center">docker-compose -f docker-compose-vX.yml up -d</p>
+          Texto centrado
+--------------
+
+docker-compose -f docker-compose-vX.yml up -d
+
 
    Donde la letra 'X' sera reemplazada por el valor de referencia marcada al principio de cada ejercicio.-
    
