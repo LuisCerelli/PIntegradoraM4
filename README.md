@@ -1,6 +1,6 @@
 # Herramientas Big Data
 
-![Imagen_Big_Data]("imagenes big data/1357.jpg")
+![Imagen_Big_Data]("imagenes big data\1357.jpg")
 
 
 Referencia: https://github.com/soyHenry/DS-M4-Herramientas_Big_Data
